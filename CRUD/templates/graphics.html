@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gráfico Interactivo de Créditos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        .chart-container { width: 80%; margin: auto; }
+    </style>
+</head>
+<body>
+    <h1>Montos de Créditos por Cliente</h1>
+    <div class="chart-container">
+       
+
+    <!--Contenedor para los datos-->
+    <div id="chart-data"
+        data-clientes='{{clientes | tojson}}'
+        data-montos='{{montos | tojson}}'></div>
+    <!--fin de contenedor-->
+    </div>
+     <canvas id="creditChart"></canvas>
+
+    <script>
+       //extraer los datos del contenedor
+       const chartDiv = document.getElementById('chart-data');
+       const clientes = JSON.parse(chartDiv.dataset.clientes);
+       const montos = JSON.parse(chartDiv.dataset.montos);
+
+       //configuracion de las graficas
+       const ctx = document.getElementById('creditChart').getContext('2d');
+       const data = {
+        labels: clientes,
+        datasets: [{
+            label: 'Montos',
+            data: montos,
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 2
+        }]
+       };
+
+       const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                title: {display: true, text: 'creditos por cliente'},
+                tooltip: {enabled: true}
+            },
+            scales: {
+                y: {beginAtZero: true}
+            }
+        }
+       };
+        new Chart(ctx, config);
+    </script>
+</body>
+</html>
