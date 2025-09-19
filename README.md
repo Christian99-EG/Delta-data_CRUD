@@ -26,21 +26,23 @@ Tecnologías
 
 Estructura del proyecto
 Delta-data_CRUD/
-├── DataBase/
-│   └── DeltaDataDB.db      # Base de datos SQLite
-├── CRUD/
-│   ├── templates/
-│   │   ├── index.html      # Página principal con formulario
-│   │   ├── actualizar_credito.html
-│   │   └── graphics.html   # Página de gráficos interactivos
-│   ├── static/             # Archivos CSS o JS si se usan
-│   └── main.py             # Aplicación Flask
-└── README.md
+  DataBase/
+    DeltaDataDB.db      # Base de datos SQLite
+    CRUD/
+        templates/
+            index.html      # Página principal con formulario
+            actualizar_credito.html
+            graphics.html   # Página de gráficos interactivos
+            static/             # Archivos CSS o JS si se usan
+            main.py             # Aplicación Flask
+ README.md
 
 Instalación y ejecución
 
-Clonar el repositorio: 
-git clone https://github.com/Christian99-EG/Delta-data_CRUD.git 
+Clonar el repositorio:
+
+git clone https://github.com/Christian99-EG/Delta-data_CRUD.git
+
 cd Delta-data_CRUD
 
 
